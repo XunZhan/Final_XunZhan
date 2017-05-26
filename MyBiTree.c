@@ -324,7 +324,6 @@ BiTree Root (BiTree T)
     return T;
 }
 
-
 int LeftChild (BiTree t, BiNode *e)
 {
     if (t==NULL)
@@ -332,10 +331,12 @@ int LeftChild (BiTree t, BiNode *e)
         printf("BiTree is Empty!\n");
         return (INF);
     }
-    if (e->lchild !=NULL)
-        return (e->lchild->data);
-
-    return (INF);
+    if (e->lchild == NULL)
+    {
+        printf("Node does not exits!\n");
+        return (INF);
+    }
+    return (e->lchild->data);
 }
 
 int RightChild (BiTree t, BiNode *e)
@@ -345,10 +346,12 @@ int RightChild (BiTree t, BiNode *e)
         printf("BiTree is Empty!\n");
         return (INF);
     }
-    if (e->rchild !=NULL)
-        return (e->rchild->data);
-
-    return (INF);
+    if (e->rchild == NULL)
+    {
+        printf("Node does not exits!\n");
+        return (INF);
+    }
+    return (e->rchild->data);
 }
 
 BiNode* LeftSibling (BiTree t, BiNode *e)
@@ -477,6 +480,8 @@ int DeleteChild (BiTree T, BiNode* p,int LR)
 
 void BiTreeTest ()
 {
+    printf("INF = 999999 If the answer is INF, it means:\n");
+    printf("1. can not get the answer  2. error exits\n");
     printf("Creating a new BiTree: -1 means null\n");
     BiTree T=NULL;
     CreatBiTree(&T);
@@ -536,7 +541,7 @@ void BiTreeTest ()
     printf("LevelOrder:");
     LevelOrderTraverse(T,PrintElement);
 
-    printf("DeleteChild(T,T->lchild->lchild,0)");
+    printf("DeleteChild(T,T->lchild->lchild,0):\n");
     DeleteChild(T,T->lchild->lchild,0);
     printf("LevelOrder:");
     LevelOrderTraverse(T,PrintElement);
