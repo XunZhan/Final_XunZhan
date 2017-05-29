@@ -384,6 +384,7 @@ int GraphTest ()
     Graph *G=NULL;
     if (!((G) = (Graph*)malloc(sizeof(Graph))))
 			return ERROR;
+    printf("!!!!!Must Enter the data according to README.md file!\n");
     CreateGraph(G);
     DFSTraverse(G);
     BFSTraverse(G);
